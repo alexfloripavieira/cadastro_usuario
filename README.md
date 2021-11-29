@@ -34,7 +34,11 @@ Subir o servidor Python atraves do comando abaixo:
 
 'python manage.py runserver'
 _________________________________________________________________________________________________________________________________________________________________________________
-# Após rodar todas as instancias, no navegador em localHost  127.0.0.1 na porta 8000 acessar a interface do usuario para cadastro de usuarios #
+# Execução do aplicativo #
+
+Após rodar todas as instancias, no navegador em localHost  127.0.0.1 na porta 8000 acessar a interface do usuario para cadastro de usuarios
+
+' http://127.0.0.1:8000 '
 ____________________________________________________________________________________________________________________________________________________________________________
 # Rota de Suporte #
 
