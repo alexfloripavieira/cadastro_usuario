@@ -91,7 +91,7 @@ REST_FRAMEWORK = {
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': env.db_url('DATABASE_URL', default="postgres://postgres:1234@localhost:5432/postgres"),
+    'default': env.db_url('DATABASE_URL', default="postgres://postgres:postgres@localhost:5432/postgres"),
 }
 
 
