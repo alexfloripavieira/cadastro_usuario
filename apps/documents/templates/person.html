@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+
+{% block container %}
+
+<div class="div-message">
+    {%include 'partials/messages.html'%}
+</div>
+
+<form method="POST" action="{%url 'person' document.id %}">
+    {%csrf_token%}
+    <div>
+              <input class="form-control input-cpf-cnpj" name="nome" id="nome" type="text"
+                value="{{document.nome}}"
+                placeholder="Nome"></input>
+             
+              <input class="form-control input-cpf-cnpj" name="cpf_cnpj" id="cpf_cnpj" type="text"
+                value="{{document.cpf_cnpj}}"
+                placeholder="CPF/CNPJ"></input>
+             
+              <input class="form-control input-cpf-cnpj" name="data_nascimento"  id="data_nascimento" type="date"
+                value="{{document.data_nascimento|date:'Y-m-d'}}"
+                placeholder="Data de Nascimento"></input>
+             
+              <input class="form-control input-cpf-cnpj" name="email" id="email" type="email"
+                value="{{document.email}}"
+                placeholder="E-mail"></input>
+                
+    </div>
+    <div class="div-btns">
+        <input type="submit" name='action' class="btn btn-primary" value="Salvar">
+    </div>
+</form>
+
+{% endblock container %}

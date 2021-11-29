@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from apps.documents.views import home, DocumentsView
+from apps.documents.views import home, DocumentsView, person_page
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from rest_framework import permissions
@@ -38,6 +38,7 @@ router.register('', DocumentsView)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
+    path('person/<int:id>', person_page, name='person'),
     path('api/documents/', include(router.urls)),
     path('docs/', schema_view.with_ui('swagger',
          cache_timeout=0), name='schema-swagger-ui'),

@@ -10,9 +10,32 @@
 <form method="POST" action="{%url 'home'%}">
     {%csrf_token%}
     <div>
-        <input class="form-control input-cpf-cnpj" name="cpf_cnpj" id="myInput" type="text"
-        value="{{request.POST.cpf_cnpj}}"
-            placeholder="CPF/CNPJ"></input>
+      <table>
+        <tbody>
+          <tr>
+            <th>
+              <input class="form-control input-cpf-cnpj" name="nome" id="nome" type="text"
+                value="{{request.POST.nome}}"
+                placeholder="Nome"></input>
+            </th>
+            <th>
+              <input class="form-control input-cpf-cnpj" name="cpf_cnpj" id="cpf_cnpj" type="text"
+                value="{{request.POST.cpf_cnpj}}"
+                placeholder="CPF/CNPJ"></input>
+            </th>
+            <th>
+              <input class="form-control input-cpf-cnpj" name="data_nascimento"  id="data_nascimento" type="date"
+                value="{{request.POST.data_nascimento}}"
+                placeholder="Data de Nascimento"></input>
+            </th>
+            <th>
+              <input class="form-control input-cpf-cnpj" name="email" id="email" type="email"
+                value="{{request.POST.email}}"
+                placeholder="E-mail"></input>
+            </th>
+          </tr>
+        </tbody>
+      </table>
 
     </div>
     <div class="div-btns">
@@ -26,7 +49,9 @@
     <table class="table">
         <thead>
           <tr>
-            <th scope="col">id</th>
+            <th scope="col">Nome</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Data de Nascimento</th>
             <th scope="col">CPF/CNPJ</th>
             <th scope="col">Ações</th>
           </tr>
@@ -34,16 +59,31 @@
         <tbody>
         {% for document in documents %}
           <tr>
-            <th scope="row">{{document.id}}</th>
+            <td>{{document.nome}}</td>
+            <td>{{document.email}}</td>
+            <td>{{document.data_nascimento}}</td>
             <td>{{document.cpf_cnpj}}</td>
             <td>
-            <form method="POST" action="{%url 'home'%}">
-                {%csrf_token%}
-                <input type="submit" name='action' class="btn btn-danger" value="Excluir">
+              <table>
+                <tr>
+                  <td>
+                    <form method="GET" action="{%url 'person' document.id %}">
+                      <input type="submit" class="btn btn-info" value="Editar">
+                  </form>
+                  </td>
 
-                <input class="form-control input-cpf-cnpj" name="cpf_cnpj" id="myInput" type="hidden"
-                value="{{document.cpf_cnpj}}">
-            </form>
+                  <td>
+                    <form method="POST" action="{%url 'home'%}">
+                      {%csrf_token%}
+                      <input type="submit" name='action' class="btn btn-danger" value="Excluir">
+      
+                      <input class="form-control input-cpf-cnpj" name="id" id="id" type="hidden"
+                      value="{{document.id}}">
+                  </form>
+                  </td>
+
+                </tr>
+              </table>
             </td>
           </tr>
         {% endfor %}
