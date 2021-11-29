@@ -46,7 +46,7 @@ Atraves da plataforma Swagger foi criado uma rota de suporte para acesso ao proj
 
 ' http://127.0.0.1:8000/docs/ '
 ____________________________________________________________________________________________________________________________________________________________________________
-# Testes Unitario #
+# Testes Unitário #
 
 Foram implementados 06 testes unitarios para a aplicação.
 
